@@ -12,7 +12,7 @@ def my_binary_encoder(df, col):
 	A binary encoding of the values in the column col for the DataFrame df
 	Will return a dataframe with both the encoding and the origional column that has been encoded.
 
-	Binary encoding works better than one hot encoding for a large (200 ish) number of values in trees ect as there are Log_2(N) features rather than N
+	Binary encoding works better than one hot encoding for a large (200 ish) number of values in trees ect as there are Log_2(N) features rather than N.
 	The down side is that the distance between encodings is not root(2) but can be both smaller (min 1) and larger (max root(n-1)). 
 	
 	Improvment: make a class that includes a decoder?
@@ -31,7 +31,6 @@ def my_binary_encoder(df, col):
 
 	binary_array = df[col].apply(lambda x:  bin_array(value_dict[x],encoding_length))
 	index_list = [ col + '_' + str(val) for val in range(encoding_length)]
-	print(binary_array)
 
 	df1 = pd.DataFrame(item for item in binary_array)
 	df1.columns = index_list
@@ -43,5 +42,5 @@ def my_binary_encoder(df, col):
 if __name__ == '__main__':
 	data = {'id':[0,1,2], 'a':['Ryan', 'Jack', 'Ben']}
 	df = pd.DataFrame(data)
-	#print(df)
-	print(my_binary_encoder(df, 'a'))
+	print('original dataframe:\n',df)
+	print('\nencoded dataframe:\n',my_binary_encoder(df, 'a'))
