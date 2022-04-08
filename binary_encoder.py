@@ -4,8 +4,8 @@ import math
 
 #https://stackoverflow.com/questions/22227595/convert-integer-to-binary-array-with-suitable-padding
 def bin_array(num, m):
-    """Convert a positive integer num into an m-bit bit vector"""
-    return np.array(list(np.binary_repr(num).zfill(m)),int)
+	"""Convert a positive integer num into an m-bit bit vector"""
+	return np.array(list(np.binary_repr(num).zfill(m)),int)
 
 def my_binary_encoder(df, col):
 	'''
@@ -18,11 +18,11 @@ def my_binary_encoder(df, col):
 	Improvment: make a class that includes a decoder?
 	
 	Parameters
-    ----------
-    df : pandas DataFrame
-        The name of the animal
-    col : str
-        the label for the column we will be encoding 
+	----------
+	df : pandas DataFrame
+		The name of the animal
+	col : str
+		the label for the column we will be encoding 
 	'''
 	value_dict = pd.unique(df['a'])
 	no_unique_elements = len(value_dict)
